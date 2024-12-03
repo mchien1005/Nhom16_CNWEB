@@ -102,7 +102,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <img id="imagePreview" src="#" alt="Preview hình ảnh" class="img-fluid d-none" style="max-width: 300px;">
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary w-100">Thêm</button>
+                    <div class="d-flex justify-content-between">
+                        <button type="submit" class="btn btn-primary">Thêm</button>
+                        <a href="index.php" class="btn btn-secondary">Hủy</a>
+                    </div>
                 </form>
             </div>
         </div>

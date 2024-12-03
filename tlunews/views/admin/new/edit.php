@@ -74,42 +74,63 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <div class="container mt-5">
-        <h1>Chỉnh sửa tin tức</h1>
-
-        <?php if ($error): ?>
-            <div class="alert alert-danger"><?= $error ?></div>
-        <?php endif; ?>
-        <?php if ($success): ?>
-            <div class="alert alert-success"><?= $success ?></div>
-        <?php endif; ?>
-
-        <form method="POST" enctype="multipart/form-data">
-            <div class="mb-3">
-                <label for="title" class="form-label">Tiêu đề</label>
-                <input type="text" class="form-control" id="title" name="title" value="<?= htmlspecialchars($news['title']) ?>" required>
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h1 class="h4 mb-0">Chỉnh sửa tin tức</h1>
             </div>
-            <div class="mb-3">
-                <label for="content" class="form-label">Nội dung</label>
-                <textarea class="form-control" id="content" name="content" rows="5" required><?= htmlspecialchars($news['content']) ?></textarea>
-            </div>
-            <div class="mb-3">
-                <label for="category_id" class="form-label">Danh mục</label>
-                <select class="form-select" id="category_id" name="category_id" required>
-                    <option value="" disabled>Chọn danh mục</option>
-                    <?php foreach ($categories as $category): ?>
-                        <option value="<?= $category['id'] ?>" <?= $category['id'] == $news['category_id'] ? 'selected' : '' ?>><?= $category['name'] ?></option>
-                    <?php endforeach; ?>
-                </select>
-            </div>
-            <div class="mb-3">
-                <label for="image" class="form-label">Ảnh</label>
-                <input type="file" class="form-control" id="image" name="image">
-                <?php if ($news['image']): ?>
-                    <img src="<?= $news['image'] ?>" alt="Current Image" class="img-fluid mt-2" style="max-height: 200px;">
+            <div class="card-body">
+                <!-- Thông báo lỗi/thành công -->
+                <?php if (isset($error) && $error): ?>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <?= $error ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
                 <?php endif; ?>
+                <?php if (isset($success) && $success): ?>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <?= $success ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                <?php endif; ?>
+
+                <!-- Form chỉnh sửa -->
+                <form method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Tiêu đề</label>
+                        <input type="text" class="form-control" id="title" name="title" value="<?= htmlspecialchars($news['title']) ?>" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="content" class="form-label">Nội dung</label>
+                        <textarea class="form-control" id="content" name="content" rows="5" required><?= htmlspecialchars($news['content']) ?></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="category_id" class="form-label">Danh mục</label>
+                        <select class="form-select" id="category_id" name="category_id" required>
+                            <option value="" disabled>Chọn danh mục</option>
+                            <?php foreach ($categories as $category): ?>
+                                <option value="<?= $category['id'] ?>" <?= $category['id'] == $news['category_id'] ? 'selected' : '' ?>>
+                                    <?= $category['name'] ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Ảnh</label>
+                        <input type="file" class="form-control" id="image" name="image">
+                        <?php if ($news['image']): ?>
+                            <div class="mt-3">
+                                <p>Ảnh hiện tại:</p>
+                                <img src="<?= htmlspecialchars($news['image']) ?>" alt="Current Image" class="img-thumbnail" style="max-height: 200px;">
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <button type="submit" class="btn btn-primary">Cập nhật</button>
+                        <a href="index.php" class="btn btn-secondary">Hủy</a>
+                    </div>
+                </form>
             </div>
-            <button type="submit" class="btn btn-primary">Cập nhật</button>
-        </form>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
