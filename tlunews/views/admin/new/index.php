@@ -25,44 +25,59 @@ $newsList = News::getAll();
 
 <body>
     <div class="container mt-5">
-        <h1>Quản lý tin tức</h1>
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="h3">Quản lý tin tức</h1>
+            <a href="add.php" class="btn btn-success">Thêm tin tức mới</a>
+        </div>
 
-        <a href="add.php" class="btn btn-success mb-3">Thêm tin tức mới</a>
+        <!-- Form tìm kiếm -->
+        <form method="GET" class="mb-4">
+            <div class="input-group">
+                <input type="text" class="form-control" name="search" placeholder="Tìm kiếm tin tức..."
+                    value="<?= htmlspecialchars($_GET['search'] ?? '') ?>">
+                <button class="btn btn-primary" type="submit">Tìm kiếm</button>
+            </div>
+        </form>
 
-        <?php if (count($newsList) > 0): ?>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Tiêu đề</th>
-                    <th>Danh mục</th>
-                    <th>Ngày tạo</th>
-                    <th>Hành động</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($newsList as $news): ?>
-                <tr>
-                    <td><?= $news['id'] ?></td>
-                    <td><?= htmlspecialchars($news['title']) ?></td>
-                    <td><?= Category::getById($news['category_id'])['name'] ?></td>
-                    <td><?= $news['created_at'] ?></td>
-                    <td>
-                        <a href="edit.php?id=<?= $news['id'] ?>" class="btn btn-warning">Sửa</a>
-                        <form action="delete.php" method="post">
-                            <input type="hidden" name="id" value="<?= $news['id'] ?>">
-                            <button type="submit" class="btn btn-danger"
-                                onclick="return confirm('Bạn có chắc muốn xóa tin tức này không?')">Xóa</button>
-                        </form>
-
-                    </td>
-                </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
-        <?php else: ?>
-        <p>Không có tin tức nào để hiển thị.</p>
-        <?php endif; ?>
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <?php if (count($newsList) > 0): ?>
+                <table class="table table-bordered table-hover align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th style="width: 5%;">ID</th>
+                            <th style="width: 30%;">Tiêu đề</th>
+                            <th style="width: 20%;">Danh mục</th>
+                            <th style="width: 20%;">Ngày tạo</th>
+                            <th style="width: 25%;">Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($newsList as $news): ?>
+                        <tr>
+                            <td><?= $news['id'] ?></td>
+                            <td><?= htmlspecialchars($news['title']) ?></td>
+                            <td><?= htmlspecialchars(Category::getById($news['category_id'])['name']) ?></td>
+                            <td><?= date("d/m/Y", strtotime($news['created_at'])) ?></td>
+                            <td>
+                                <div class="d-flex gap-2">
+                                    <a href="edit.php?id=<?= $news['id'] ?>" class="btn btn-warning btn-sm">Sửa</a>
+                                    <form action="delete.php" method="post" class="d-inline-block">
+                                        <input type="hidden" name="id" value="<?= $news['id'] ?>">
+                                        <button type="submit" class="btn btn-danger btn-sm"
+                                            onclick="return confirm('Bạn có chắc muốn xóa tin tức này không?')">Xóa</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+                <?php else: ?>
+                <p class="text-center text-muted">Không có tin tức nào để hiển thị.</p>
+                <?php endif; ?>
+            </div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
