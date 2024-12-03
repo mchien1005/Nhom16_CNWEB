@@ -57,41 +57,72 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
     <div class="container mt-5">
-        <h1>Thêm tin tức</h1>
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h1 class="h4 mb-0">Thêm tin tức</h1>
+            </div>
+            <div class="card-body">
+                <!-- Thông báo lỗi/thành công -->
+                <?php if (isset($error) && $error): ?>
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <?= $error ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                <?php endif; ?>
+                <?php if (isset($success) && $success): ?>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <?= $success ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                <?php endif; ?>
 
-        <?php if ($error): ?>
-            <div class="alert alert-danger"><?= $error ?></div>
-        <?php endif; ?>
-        <?php if ($success): ?>
-            <div class="alert alert-success"><?= $success ?></div>
-        <?php endif; ?>
-
-        <form method="POST" enctype="multipart/form-data">
-            <div class="mb-3">
-                <label for="title" class="form-label">Tiêu đề</label>
-                <input type="text" class="form-control" id="title" name="title" required>
+                <!-- Form nhập liệu -->
+                <form method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Tiêu đề</label>
+                        <input type="text" class="form-control" id="title" name="title" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="content" class="form-label">Nội dung</label>
+                        <textarea class="form-control" id="content" name="content" rows="5" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="category_id" class="form-label">Danh mục</label>
+                        <select class="form-select" id="category_id" name="category_id" required>
+                            <option value="" disabled selected>Chọn danh mục</option>
+                            <?php foreach ($categories as $category): ?>
+                                <option value="<?= $category['id'] ?>"><?= $category['name'] ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Ảnh</label>
+                        <input type="file" class="form-control" id="image" name="image" onchange="previewImage(event)">
+                        <div class="mt-2">
+                            <img id="imagePreview" src="#" alt="Preview hình ảnh" class="img-fluid d-none" style="max-width: 300px;">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Thêm</button>
+                </form>
             </div>
-            <div class="mb-3">
-                <label for="content" class="form-label">Nội dung</label>
-                <textarea class="form-control" id="content" name="content" rows="5" required></textarea>
-            </div>
-            <div class="mb-3">
-                <label for="category_id" class="form-label">Danh mục</label>
-                <select class="form-select" id="category_id" name="category_id" required>
-                    <option value="" disabled selected>Chọn danh mục</option>
-                    <?php foreach ($categories as $category): ?>
-                        <option value="<?= $category['id'] ?>"><?= $category['name'] ?></option>
-                    <?php endforeach; ?>
-                </select>
-            </div>
-            <div class="mb-3">
-                <label for="image" class="form-label">Ảnh</label>
-                <input type="file" class="form-control" id="image" name="image">
-            </div>
-            <button type="submit" class="btn btn-primary">Thêm</button>
-        </form>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Preview hình ảnh
+        function previewImage(event) {
+            const input = event.target;
+            const preview = document.getElementById('imagePreview');
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    preview.src = e.target.result;
+                    preview.classList.remove('d-none');
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
 </body>
 </html>
