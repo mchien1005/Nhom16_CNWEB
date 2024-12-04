@@ -2,9 +2,27 @@
 require_once __DIR__ . '/Database.php';
 
 class News {
+    // Hàm tìm kiếm tin tức theo từ khóa
+    public static function search($searchTerm) {
+        // Kết nối với cơ sở dữ liệu
+        $db = Database::connect();
+        
+        // Truy vấn tìm kiếm tin tức có tiêu đề hoặc nội dung chứa từ khóa
+        $stmt = $db->prepare("SELECT * FROM news WHERE title LIKE :searchTerm OR content LIKE :searchTerm");
+        $stmt->execute(['searchTerm' => '%' . $searchTerm . '%']);
+        
+        // Trả về kết quả tìm kiếm
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    // Hàm lấy tất cả tin tức
     public static function getAll() {
         $db = Database::connect();
+        
+        // Truy vấn lấy tất cả tin tức
         $stmt = $db->query("SELECT * FROM news");
+        
+        // Trả về tất cả tin tức
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 

@@ -1,16 +1,16 @@
 <?php
 class Database {
-    public static function connect() {
-        try {
-            $dsn = "mysql:host=localhost;dbname=tintuc;charset=utf8";
-            $username = "root";
-            $password = "";
+    private static $instance = null;
 
-            return new PDO($dsn, $username, $password, [
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-            ]);
-        } catch (PDOException $e) {
-            die("Kết nối cơ sở dữ liệu thất bại: " . $e->getMessage());
+    public static function connect() {
+        if (self::$instance === null) {
+            try {
+                self::$instance = new PDO("mysql:host=localhost;dbname=tintuc;charset=utf8", "root", "");
+                self::$instance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            } catch (PDOException $e) {
+                die("Database connection failed: " . $e->getMessage());
+            }
         }
+        return self::$instance;
     }
 }
