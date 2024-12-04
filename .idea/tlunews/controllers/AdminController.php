@@ -1,5 +1,5 @@
 <?php
-require_once 'C:\xampp\htdocs\Nhom16_CNWEB\tlunews\models\User.php';
+require_once 'C:/xampp/htdocs/tlunews/models/User.php';
 
 class AdminController {
     public function login() {
@@ -11,6 +11,6 @@ class AdminController {
     }
     public function manageNews()
     {
-        include 'C:\xampp\htdocs\Nhom16_CNWEB\tlunews\views\admin\new\index.php';
+        include 'C:\xampp\htdocs\tlunews\views\admin\new\index.php';
     }
 }
