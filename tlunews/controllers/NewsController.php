@@ -1,5 +1,5 @@
 <?php
-require_once 'C:\xampp\htdocs\Nhom16_CNWEB\tlunews\models\News.php';
+require_once 'models\News.php';
 
 class NewsController {
     public function index() {
