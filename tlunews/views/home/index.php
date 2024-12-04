@@ -3,7 +3,6 @@ session_start();
 require_once "models/News.php";
 require_once "models/Category.php";
 
-<<<<<<< HEAD
 // Kiểm tra xem có tìm kiếm không
 $searchTerm = isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '';
 
@@ -12,15 +11,6 @@ if ($searchTerm) {
     $newsList = News::search($searchTerm); // Hàm tìm kiếm theo từ khóa
 } else {
     $newsList = News::getAll(); // Lấy tất cả tin tức nếu không có từ khóa
-=======
-
-$searchTerm = isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '';
-
-if ($searchTerm) {
-    $newsList = News::search($searchTerm); 
-} else {
-    $newsList = News::getAll(); 
->>>>>>> feature/index
 }
 ?>
 
@@ -33,11 +23,7 @@ if ($searchTerm) {
     <title>Danh sách tin tức</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-<<<<<<< HEAD
     /* Cấu hình chung cho body */
-=======
-   
->>>>>>> feature/index
     body {
         font-family: 'Roboto', sans-serif;
         background-color: #f4f7fa;
@@ -46,21 +32,14 @@ if ($searchTerm) {
         padding: 0;
     }
 
-<<<<<<< HEAD
     /* Container chính */
-=======
-
->>>>>>> feature/index
     .container {
         max-width: 1200px;
         margin: 0 auto;
         padding: 30px;
     }
 
-<<<<<<< HEAD
     /* Tiêu đề */
-=======
->>>>>>> feature/index
     h1 {
         font-size: 36px;
         color: #495057;
@@ -69,11 +48,7 @@ if ($searchTerm) {
         margin-bottom: 40px;
     }
 
-<<<<<<< HEAD
     /* Form tìm kiếm */
-=======
-   
->>>>>>> feature/index
     .input-group {
         max-width: 600px;
         margin: 0 auto 40px;
@@ -97,11 +72,7 @@ if ($searchTerm) {
         background-color: #0056b3;
     }
 
-<<<<<<< HEAD
     /* Card chứa tin tức */
-=======
-    
->>>>>>> feature/index
     .card {
         border-radius: 12px;
         box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
@@ -149,11 +120,7 @@ if ($searchTerm) {
         background-color: #0056b3;
     }
 
-<<<<<<< HEAD
     /* Khi không có tin tức */
-=======
-  
->>>>>>> feature/index
     .no-news {
         font-size: 18px;
         color: #888;
@@ -161,21 +128,16 @@ if ($searchTerm) {
         margin-top: 40px;
     }
 
-<<<<<<< HEAD
     /* Footer */
-=======
->>>>>>> feature/index
     footer {
         background-color: #343a40;
         color: white;
-        text-align: center;
-        padding: 15px 0;
+        text-align: center;/-strong/-heart:>:o:-((:-h padding: 15px 0;
         position: fixed;
         bottom: 0;
         width: 100%;
     }
     h1 {
-<<<<<<< HEAD
     font-family: 'Arial', sans-serif; /* Thay đổi font chữ để tiêu đề đẹp hơn */
     font-size: 48px; /* Tăng kích thước chữ */
     color: #333; /* Màu chữ tối để dễ đọc */
@@ -186,18 +148,6 @@ if ($searchTerm) {
     margin-bottom: 40px; /* Khoảng cách dưới tiêu đề */
     padding-top: 40px;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Thêm bóng cho chữ để nó nổi bật hơn */
-=======
-    font-family: 'Arial', sans-serif; 
-    font-size: 48px;
-    color: #333; 
-    font-weight: bold; 
-    text-align: center; 
-    text-transform: uppercase; 
-    letter-spacing: 2px; 
-    margin-bottom: 40px; 
-    padding-top: 40px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); 
->>>>>>> feature/index
 }
 </style>
 </head>
@@ -206,11 +156,7 @@ if ($searchTerm) {
     <div class="container mt-5">
         <h1>Danh sách tin tức</h1>
 
-<<<<<<< HEAD
         <!-- Tìm kiếm tin tức -->
-=======
-        
->>>>>>> feature/index
         <form action="index.php" method="get" class="mb-4">
             <div class="input-group">
                 <input type="text" name="search" class="form-control" placeholder="Tìm kiếm tin tức..." value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">
