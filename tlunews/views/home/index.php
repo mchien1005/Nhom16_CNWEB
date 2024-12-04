@@ -158,7 +158,7 @@ if ($searchTerm) {
         font-size: 18px;
         color: #888;
         text-align: center;
-        margin-top:  40px;
+        margin-top: 40px;
     }
 
 <<<<<<< HEAD
