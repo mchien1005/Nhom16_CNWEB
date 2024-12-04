@@ -16,17 +16,12 @@
       <change afterPath="$PROJECT_DIR$/tlunews/tlu.htaccess" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/tlunews/views/admin/dashboard.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/tlunews/views/admin/login.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tlunews/views/admin/new/add.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tlunews/views/admin/new/delete.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tlunews/views/admin/new/edit.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tlunews/views/admin/new/index.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tlunews/views/admin/new/uploads/img_0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tlunews/views/admin/new/uploads/img_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tlunews/views/admin/new/uploads/img_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tlunews/views/admin/new/uploads/img_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tlunews/views/admin/new/uploads/img_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tlunews/views/admin/logout.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/tlunews/views/home/index.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/tlunews/views/news/detail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tlunews/views/admin/new/delete.php" beforeDir="false" afterPath="$PROJECT_DIR$/tlunews/views/admin/new/delete.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tlunews/views/admin/new/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/tlunews/views/admin/new/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,35 +66,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "PHP Script.AdminController.php.executor": "Run",
-    "PHP Script.Database.php.executor": "Run",
-    "PHP Script.News.php.executor": "Run",
-    "PHP Script.NewsController.php.executor": "Run",
-    "PHP Script.User.php.executor": "Run",
-    "PHP Script.add.php.executor": "Debug",
-    "PHP Script.delete.php.executor": "Run",
-    "PHP Script.edit.php.executor": "Run",
-    "PHP Script.index.php.executor": "Run",
-    "PHP Script.login.php.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feature/AddEditDelete",
-    "last_opened_file_path": "C:/Users/minhc/OneDrive/Tài liệu/GitHub/Nhom16_CNWEB/tlunews (1)/views/admin/new",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.webide.settings.project.settings.php",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;PHP Script.AdminController.php.executor&quot;: &quot;Run&quot;,
+    &quot;PHP Script.Database.php.executor&quot;: &quot;Run&quot;,
+    &quot;PHP Script.News.php.executor&quot;: &quot;Run&quot;,
+    &quot;PHP Script.NewsController.php.executor&quot;: &quot;Run&quot;,
+    &quot;PHP Script.User.php.executor&quot;: &quot;Run&quot;,
+    &quot;PHP Script.add.php.executor&quot;: &quot;Debug&quot;,
+    &quot;PHP Script.delete.php.executor&quot;: &quot;Run&quot;,
+    &quot;PHP Script.edit.php.executor&quot;: &quot;Run&quot;,
+    &quot;PHP Script.index.php.executor&quot;: &quot;Run&quot;,
+    &quot;PHP Script.login.php.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/AddEditDelete&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/minhc/OneDrive/Tài liệu/GitHub/Nhom16_CNWEB/tlunews (1)/views/admin/new&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.webide.settings.project.settings.php&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mariadb&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\minhc\OneDrive\Tài liệu\GitHub\Nhom16_CNWEB\tlunews (1)\views\admin\new" />
